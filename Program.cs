@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
+using static System.Console;
 
 namespace TimerApp
 {
@@ -11,11 +8,11 @@ namespace TimerApp
     {
         static void PrintTime(object state)
         {
-            Console.WriteLine("Time is: {0}, {1}", DateTime.Now.ToLongTimeString(), state.ToString());
+            WriteLine($"Time is: {DateTime.Now.ToLongTimeString()}, {state.ToString()}");
         }
-        static void Main(string[] args)
+        static void Main()
         {
-            Console.WriteLine("***** Working with Timer type *****\n");
+            WriteLine("***** Working with Timer type *****\n");
 
             // Create the delegate for the Timer type.
             TimerCallback timeCB = new TimerCallback(PrintTime);
@@ -27,8 +24,8 @@ namespace TimerApp
                 0,          // Amount of time to wait before starting (in milliseconds).
                 1000);      // Interval of time between calls (in milliseconds).
 
-            Console.WriteLine("Hit Enter key to terminate...");
-            Console.ReadLine();
+            WriteLine("Hit Enter key to terminate...");
+            ReadLine();
         }
     }
 }
